@@ -307,9 +307,6 @@ async fn test_trace_mcp_tool_call() -> Result<(), agent_client_protocol::Error> 
                     session: None,
                     params: Object {
                         "clientCapabilities": Object {
-                            "auth": Object {
-                                "terminal": Bool(false),
-                            },
                             "fs": Object {
                                 "readTextFile": Bool(false),
                                 "writeTextFile": Bool(false),
@@ -329,7 +326,6 @@ async fn test_trace_mcp_tool_call() -> Result<(), agent_client_protocol::Error> 
                     is_error: false,
                     payload: Object {
                         "agentCapabilities": Object {
-                            "auth": Object {},
                             "loadSession": Bool(false),
                             "mcpCapabilities": Object {
                                 "http": Bool(false),
