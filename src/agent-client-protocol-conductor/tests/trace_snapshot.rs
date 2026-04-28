@@ -5,11 +5,11 @@
 //!
 //! Run `just prep-tests` before running this test.
 
+use agent_client_protocol::AcpAgent;
 use agent_client_protocol_conductor::trace::TraceEvent;
 use agent_client_protocol_conductor::{ConductorImpl, McpBridgeMode, ProxiesAndAgent};
 use agent_client_protocol_test::test_binaries::{arrow_proxy_example, testy};
 use agent_client_protocol_test::testy::TestyCommand;
-use agent_client_protocol_tokio::AcpAgent;
 use expect_test::expect;
 use futures::StreamExt;
 use futures::channel::mpsc;
@@ -192,9 +192,6 @@ async fn test_trace_snapshot() -> Result<(), agent_client_protocol::Error> {
                     session: None,
                     params: Object {
                         "clientCapabilities": Object {
-                            "auth": Object {
-                                "terminal": Bool(false),
-                            },
                             "fs": Object {
                                 "readTextFile": Bool(false),
                                 "writeTextFile": Bool(false),
@@ -214,7 +211,6 @@ async fn test_trace_snapshot() -> Result<(), agent_client_protocol::Error> {
                     is_error: false,
                     payload: Object {
                         "agentCapabilities": Object {
-                            "auth": Object {},
                             "loadSession": Bool(false),
                             "mcpCapabilities": Object {
                                 "http": Bool(false),
